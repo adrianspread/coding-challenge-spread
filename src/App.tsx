@@ -1,6 +1,6 @@
-import React from 'react';
-import Layout from './components/Layout';
-import Game from './components/Game';
+import React from "react";
+import Layout from "./components/Layout";
+import Game from "./components/Game/Game";
 
 function App() {
   return (

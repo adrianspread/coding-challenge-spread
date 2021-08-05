@@ -19,11 +19,11 @@ export default function Card({
       const cardToFlip = { ...card };
       const isFlippedPair =
         cardsCopy.filter(
-          (card) => card.imageId === imageId && card.isFlipped && card.IsInAPair
+          (card) => card.imageId === imageId && card.isFlipped && card.isInAPair
         ).length === 2;
 
       const areTwoCardsFlippedThatAreNotAPair =
-        cardsCopy.filter((card) => card.isFlipped && !card.IsInAPair).length ===
+        cardsCopy.filter((card) => card.isFlipped && !card.isInAPair).length ===
           2 && !card.isFlipped;
 
       // if a clicked not flipped card and two other cards flipped do nothing
@@ -40,7 +40,7 @@ export default function Card({
       cardToFlip.isFlipped = !isFlipped;
       cardsCopy[index] = cardToFlip;
 
-      // if there is a pair of flipped cards change flag IsInAPair for each one
+      // if there is a pair of flipped cards change flag isInAPair for this pair
       if (
         cards.filter((card) => card.imageId === imageId && card.isFlipped)
           .length === 1
@@ -49,7 +49,7 @@ export default function Card({
           if (card.imageId === imageId && card.isFlipped) {
             return {
               ...card,
-              IsInAPair: true,
+              isInAPair: true,
             };
           } else {
             return card;
@@ -81,13 +81,13 @@ export default function Card({
 interface CardProps {
   index: number;
   gridSize: number;
-  card: Card;
-  setCards: Dispatch<SetStateAction<Card[]>>;
-  cards: Card[];
+  card: ImageProps;
+  setCards: Dispatch<SetStateAction<ImageProps[]>>;
+  cards: ImageProps[];
 }
 
-interface Card {
-  imageId: number;
-  isFlipped: boolean;
-  IsInAPair: boolean;
+export interface ImageProps {
+  imageId?: number;
+  isFlipped?: boolean;
+  isInAPair?: boolean;
 }
