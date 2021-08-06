@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from "react";
 import Board from "../Board";
-import Card, { ImageProps } from "../Card";
+import Card, { ImageProps } from "../Card/Card";
 import { getImagesIdsUrl } from "../../shared/requests/getImagesId";
 import { createStateObj } from "./functions";
 
 function Game({ gridSize = 5 }: GameProps) {
-  const [cards, setCards] = useState([{}]);
+  const [cards, setCards] = useState([
+    {
+      imageId: 0,
+      isFlipped: false,
+      isInAPair: false,
+    },
+  ]);
 
   useEffect(() => {
     getImagesIdsUrl().then((res) =>

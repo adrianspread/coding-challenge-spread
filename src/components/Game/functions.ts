@@ -1,4 +1,4 @@
-import { ImageProps } from "../Card";
+import { ImageProps } from "../Card/Card";
 
 export const createStateObj = (imagesIdsArr: number[]): ImageProps[] => {
   return (
