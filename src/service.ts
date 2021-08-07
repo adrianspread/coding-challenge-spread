@@ -16,7 +16,7 @@ export function generateCards(gridSize: number) {
   const imageIds: number[] = [];
 
   do {
-    const randomNumber = getRandomArbitrary(1, 20);
+    const randomNumber = getRandomArbitrary(1, 200);
 
     if (!imageIds.includes(randomNumber)) {
       imageIds.push(randomNumber);
