@@ -16,7 +16,7 @@ export function generateCards(gridSize: number) {
   const imageIds: number[] = [];
 
   do {
-    const randomNumber = getRandomArbitrary(1, 200);
+    const randomNumber = getRandomArbitrary(1, 20);
 
     if (!imageIds.includes(randomNumber)) {
       imageIds.push(randomNumber);
@@ -42,9 +42,12 @@ export const fetch = async (url: string, payload: number): Promise<Response> => 
 
         const ok = Boolean(Math.round(Math.random()));
         const init = { "status": ok ? 200 : 500 };
+
+
         const body = ok ? generateCards(payload) : undefined;
 
         const myResponse = new Response(new Blob([JSON.stringify(body)], { type: 'application/json'}),init);
+
         resolve(myResponse)
     })
 }
