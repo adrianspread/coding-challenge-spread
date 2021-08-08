@@ -1,7 +1,9 @@
 import React, { Dispatch, SetStateAction, useCallback, useState } from "react";
+
 import CardWrapper from "../CardWrapper";
 import CardImage from "../CardImage";
 import CardBack from "../CardBack";
+
 import { toggleFlipped } from "./functions";
 
 export default function Card({

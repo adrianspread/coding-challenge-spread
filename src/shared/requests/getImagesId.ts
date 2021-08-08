@@ -1,9 +1,7 @@
-import {fetch} from "../../service";
-import {IMAGES_IDS_URL} from "../consts";
+import { fetch } from "../../service";
+import { IMAGES_IDS_URL } from "../consts";
 
-export const getImagesIds = () => fetch(IMAGES_IDS_URL, 5)
-    .then((res) => {
-            return res.json()
-        }
-    )
-
+export const getImagesIds = (gridSize: number) =>
+  fetch(IMAGES_IDS_URL, gridSize).then((res) => {
+    return res.json();
+  });
